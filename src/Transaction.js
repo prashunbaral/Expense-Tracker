@@ -24,7 +24,10 @@ function moneyFormatter(num) {
   
     return (
       <li className={transaction.amount < 0 ? 'minus' : 'plus'}>
-        {transaction.text} <span>{sign}{moneyFormatter(transaction.amount)}</span><button onClick={() => deleteTransaction(transaction.id)} className="delete-btn">x</button>
+          <div>
+              <span>{transaction.text}</span> <span className='am'>{sign}{moneyFormatter(transaction.amount)}</span> <span className='tm'>{transaction.date.toLocaleString()}</span>
+          </div>
+          <button onClick={() => deleteTransaction(transaction.id)} className="delete-btn">x</button>
       </li>
-    )
+  )
   }

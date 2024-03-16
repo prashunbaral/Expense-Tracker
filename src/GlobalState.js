@@ -21,12 +21,17 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function addTransaction(transaction) {
+  function addTransaction(newTransaction) {
+    const transactionWithDate = {
+        ...newTransaction,
+        date: new Date() // Add the current date and time
+    };
+
     dispatch({
-      type: 'ADD_TRANSACTION',
-      payload: transaction
+        type: 'ADD_TRANSACTION',
+        payload: transactionWithDate
     });
-  }
+}
 
   return (
     <GlobalContext.Provider value={{
